@@ -72,7 +72,7 @@ const Gallery: React.FC = () => {
 			<div className="mx-auto px-4 container">
 				<div className="mb-12 text-center">
 					<h2 className="mb-2 font-bold text-pink-600 text-3xl">Galeri Kenangan</h2>
-					<p className="mx-auto max-w-xl text-gray-600">Momen-momen indah kita yang akan selalu terkenang.</p>
+					<p className="mx-auto max-w-xl text-gray-600">Momen-momen akan selalu terkenang.</p>
 				</div>
 
 				<div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
