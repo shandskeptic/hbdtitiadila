@@ -1,36 +1,42 @@
 import React, { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Photo } from '../types';
+import MyImage1 from '../image/1.jpg';
+import MyImage2 from '../image/2.jpg';
+import MyImage3 from '../image/3.jpg';
+import MyImage4 from '../image/4.jpg';
+import MyImage5 from '../image/5.jpg';
+import MyImage6 from '../image/6.jpg';
 
 const photos: Photo[] = [
 	{
 		id: 1,
-		url: '../image/1.jpg',
+		url: MyImage1,
 		caption: 'Momen bahagia kita bersama',
 	},
 	{
 		id: 2,
-		url: '../image/2.jpg',
+		url: MyImage2,
 		caption: 'Senyummu yang selalu membuatku jatuh cinta',
 	},
 	{
 		id: 3,
-		url: '../image/3.jpg',
+		url: MyImage3,
 		caption: 'Kenangan indah yang tak terlupakan',
 	},
 	{
 		id: 4,
-		url: '../image/4.jpg',
+		url: MyImage4,
 		caption: 'Waktu berharga yang kita habiskan bersama',
 	},
 	{
 		id: 5,
-		url: '../image/5.jpg',
+		url: MyImage5,
 		caption: 'Perjalanan cinta kita',
 	},
 	{
 		id: 6,
-		url: '../image/6.jpg',
+		url: MyImage6,
 		caption: 'Kamu adalah hadiah terindah dalam hidupku',
 	},
 ];
