@@ -30,26 +30,40 @@ const Hero: React.FC = () => {
 
 		// Create audio element
 		audioRef.current = new Audio(birthdayMusic);
-		audioRef.current.loop = true; // Make the music loop
+		audioRef.current.loop = true;
+		audioRef.current.volume = 0.5; // Set volume to 50%
 
-		// Autoplay when component mounts
-		const playPromise = audioRef.current.play();
+		// Try to autoplay when component mounts
+		const tryAutoplay = async () => {
+			try {
+				await audioRef.current?.play();
+				setIsPlaying(true);
+			} catch (error) {
+				console.log('Autoplay prevented:', error);
+				setIsPlaying(false);
+			}
+		};
 
-		if (playPromise !== undefined) {
-			playPromise
-				.then(() => {
+		// Add click event listener to the document for autoplay
+		const handleFirstInteraction = async () => {
+			if (!isPlaying) {
+				try {
+					await audioRef.current?.play();
 					setIsPlaying(true);
-				})
-				.catch((error) => {
-					// Autoplay was prevented
-					console.log('Autoplay prevented:', error);
-					setIsPlaying(false);
-				});
-		}
+				} catch (error) {
+					console.log('Play failed:', error);
+				}
+			}
+			document.removeEventListener('click', handleFirstInteraction);
+		};
+
+		document.addEventListener('click', handleFirstInteraction);
+		tryAutoplay();
 
 		// Cleanup on unmount
 		return () => {
 			clearInterval(interval);
+			document.removeEventListener('click', handleFirstInteraction);
 			if (audioRef.current) {
 				audioRef.current.pause();
 				audioRef.current = null;
@@ -62,7 +76,9 @@ const Hero: React.FC = () => {
 			if (isPlaying) {
 				audioRef.current.pause();
 			} else {
-				audioRef.current.play();
+				audioRef.current.play().catch((error) => {
+					console.log('Play failed:', error);
+				});
 			}
 			setIsPlaying(!isPlaying);
 		}
