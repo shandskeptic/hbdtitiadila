@@ -12,7 +12,7 @@ const photos: Photo[] = [
 	{
 		id: 1,
 		url: MyImage1,
-		caption: 'Momen bahagia kita bersama',
+		caption: 'Momen bahagia',
 	},
 	{
 		id: 2,
@@ -27,7 +27,7 @@ const photos: Photo[] = [
 	{
 		id: 4,
 		url: MyImage4,
-		caption: 'Waktu berharga yang kita habiskan bersama',
+		caption: 'Waktu berharga bersama',
 	},
 	{
 		id: 5,
